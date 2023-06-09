@@ -1,0 +1,11 @@
+name: BedWarsPlugin
+version: '${version}'
+main: me.daniel.bedwarsplugin.BedWarsPlugin
+api-version: 1.19
+commands:
+  startSpawner:
+    description: This command will start all the spawners
+    usage: /<command>
+    aliases:
+      - ss
+
