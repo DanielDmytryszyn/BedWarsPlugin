@@ -10,17 +10,19 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 
-import java.util.List;
 import java.util.Objects;
 
+/**
+ * Author: Daniel Dmytryszyn
+ * Class for handling the onBuy event.
+ */
 public class OnBuyEvent implements Listener {
 
-    private final List<ShopItem> shopItems;
-
-    public OnBuyEvent(List<ShopItem> shopItems) {
-        this.shopItems = shopItems;
-    }
-
+    /**
+     * Cancels the onBuy event if the player does not have enough emeralds.
+     *
+     * @param event the event
+     */
     @EventHandler
     public void onBuy(InventoryClickEvent event) {
 
@@ -47,12 +49,17 @@ public class OnBuyEvent implements Listener {
             return;
         }
 
-        if (itemClicked != null) {
-            pay(Material.EMERALD, price, yourInventory);
-            addItem(itemClicked.getType(), yourInventory, amount);
-        }
+        pay(Material.EMERALD, price, yourInventory);
+        addItem(itemClicked.getType(), yourInventory, amount);
     }
 
+    /**
+     * Adds an item to the player's inventory.
+     *
+     * @param item      the item to add
+     * @param inventory the player's inventory
+     * @param amount    the number of items to add
+     */
     public void addItem(Material item, PlayerInventory inventory, int amount) {
         for (int i = 0; i < amount; i++) {
             inventory.addItem(new ItemStack(item));
@@ -61,13 +68,19 @@ public class OnBuyEvent implements Listener {
     }
 
 
+    /**
+     * Removes an item from the player's inventory.
+     *
+     * @param itemToRemove the item to remove
+     * @param amount       the number of items to remove
+     * @param inventory    the player's inventory
+     */
     public void pay(Material itemToRemove, int amount, PlayerInventory inventory) {
 
         if (inventory.contains(itemToRemove, amount)) {
             for (int i = 0; i < amount; i++) {
                 inventory.removeItemAnySlot(new ItemStack(itemToRemove));
             }
-
         }
     }
 

@@ -12,7 +12,13 @@ import org.bukkit.inventory.Inventory;
 
 import java.util.List;
 
+
+/**
+ * Author: Daniel Dmytryszyn
+ * Class for handling the onShopOpen event.
+ */
 public class OnShopOpenEvent implements Listener {
+
 
     private final List<ShopItem> shopItems;
 
@@ -20,7 +26,11 @@ public class OnShopOpenEvent implements Listener {
         this.shopItems = shopItems;
     }
 
-
+    /**
+     * Opens the shop inventory if the player right-clicks on a villager.
+     *
+     * @param event the event
+     */
     @EventHandler
     public void onShopOpen(PlayerInteractEntityEvent event) {
 
@@ -35,6 +45,11 @@ public class OnShopOpenEvent implements Listener {
 
     }
 
+    /**
+     * Adds the shop items to the shop inventory.
+     *
+     * @param inventory the inventory
+     */
     public void addItemsToShop(Inventory inventory) {
 
         shopItems.forEach(shopItem -> {

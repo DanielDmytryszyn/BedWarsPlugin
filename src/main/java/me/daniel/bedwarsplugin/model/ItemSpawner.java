@@ -3,16 +3,19 @@ package me.daniel.bedwarsplugin.model;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.scheduler.BukkitRunnable;
 
 /**
+ * Author: Jakob Zeise,
  * A class representing an item spawner in a BedWars plugin.
  */
 public class ItemSpawner {
 
     private final Location location;
     private final ItemStack item;
+
+    private BukkitRunnable runnable;
 
     /**
      * Constructs an ItemSpawner object.
@@ -32,21 +35,23 @@ public class ItemSpawner {
      */
     public void startSpawner(Plugin plugin) {
 
-        new BukkitRunnable() {
+        runnable = new BukkitRunnable() {
             @Override
             public void run() {
                 World world = location.getWorld();
                 world.dropItem(location, item);
             }
-        }.runTaskTimer(plugin, 200, 200);
+        };
+        runnable.runTaskTimer(plugin, 200, 200);
 
     }
+
 
     /**
      * Stops the spawner.
      */
     public void stopSpawner() {
-        // Add implementation to stop the spawner
+        runnable.cancel();
     }
 
 

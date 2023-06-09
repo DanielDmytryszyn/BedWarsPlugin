@@ -6,32 +6,26 @@ import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
+
 /**
  * Author: Jakob Zeise
- * Command executor for the "start spawner" command.
- * This command starts the item spawners in the specified world.
+ * Command executor for the "stop spawner" command.
  */
-public class StartSpawnerCommand implements CommandExecutor {
-
-    private final Plugin plugin;
+public class StopSpawnerCommand implements CommandExecutor {
 
     /**
-     * Constructs a new StartSpawnerCommand with the specified plugin.
-     *
-     * @param plugin the plugin instance
+     * Constructs a new StopSpawnerCommand with the specified plugin.
      */
-    public StartSpawnerCommand(Plugin plugin) {
-        this.plugin = plugin;
+    public StopSpawnerCommand() {
     }
 
     /**
-     * Executes the "start spawner" command.
-     * Starts the item spawners in the specified world.
+     * Executes the "stop spawner" command.
+     * Stops the item spawners in the specified world.
      *
      * @param sender  the command sender
      * @param command the command executed
@@ -43,8 +37,9 @@ public class StartSpawnerCommand implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 
         World world = sender.getServer().getWorlds().get(0);
-        List<ItemSpawner> itemSpawner = ItemSpawnerReader.getItemSpawner(world);
-        itemSpawner.forEach(spawner -> spawner.startSpawner(plugin));
+        List<ItemSpawner> spawners = ItemSpawnerReader.getItemSpawner(world);
+
+        spawners.forEach(ItemSpawner::stopSpawner);
 
         return true;
     }

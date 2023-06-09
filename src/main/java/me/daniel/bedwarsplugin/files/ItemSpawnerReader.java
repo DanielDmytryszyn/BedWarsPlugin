@@ -10,18 +10,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Author: Jakob Zeise
  * Utility class for reading item spawner data from a file.
  */
 public class ItemSpawnerReader {
 
+    static List<ItemSpawner> spawners;
     /**
+     * Author: Jakob Zeise
      * Retrieves a list of item spawners based on the provided world.
      *
      * @param world the world to retrieve the item spawners from
      * @return a list of item spawners
      */
-    public List<ItemSpawner> getItemSpawner(World world) {
+    public static List<ItemSpawner> getItemSpawner(World world) {
+
         String testFile = "35,114,1,EMERALD;35,124,1,EMERALD;57,115,-7,EMERALD";
+
+        if (spawners != null) {
+            return spawners;
+        }
 
         List<ItemSpawner> spawners = new ArrayList<>();
 
