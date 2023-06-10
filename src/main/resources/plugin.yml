@@ -3,9 +3,18 @@ version: '${version}'
 main: me.daniel.bedwarsplugin.BedWarsPlugin
 api-version: 1.19
 commands:
-  startSpawner:
+  startround:
     description: This command will start all the spawners
     usage: /<command>
     aliases:
       - ss
-
+  stopround:
+    description: This command will stop all the spawners
+    usage: /<command>
+    aliases:
+      - sr
+  teaminfo:
+    description: This command will show you the team info
+    usage: /<command>
+    aliases:
+      - ti

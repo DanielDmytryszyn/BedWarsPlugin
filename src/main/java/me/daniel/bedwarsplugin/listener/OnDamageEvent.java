@@ -1,6 +1,7 @@
 package me.daniel.bedwarsplugin.listener;
 
 import me.daniel.bedwarsplugin.model.Team;
+import me.daniel.bedwarsplugin.model.TeamManager;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -15,10 +16,10 @@ import java.util.List;
  */
 public class OnDamageEvent implements Listener {
 
-    private final List<Team> teams;
+    private final TeamManager teamManager;
 
-    public OnDamageEvent(List<Team> teams) {
-        this.teams = teams;
+    public OnDamageEvent(List<Team> teams, TeamManager teamManager) {
+        this.teamManager = teamManager;
     }
 
 
@@ -32,24 +33,16 @@ public class OnDamageEvent implements Listener {
 
 
         Entity entity1 = event.getDamager();
-        Player player1;
-
-        if (entity1 instanceof Player p1) player1 = p1;
-        else return;
-
-
         Entity entity2 = event.getEntity();
-        Player player2;
-        if (entity2 instanceof Player p2) player2 = p2;
-        else return;
 
-        for (Team team : teams) {
-            if (team.checkSameTeam(player1, player2)) {
-                System.out.println("in same team");
-                // TODO: 6/9/2023 implement team damage
+        if (entity1 instanceof Player player1 && entity2 instanceof Player player2) {
+            Team teamPlayer1 = teamManager.getTeamOfPlayer(player1);
+            Team teamPlayer2 = teamManager.getTeamOfPlayer(player2);
+
+            if (teamPlayer1.equals(teamPlayer2)) {
+                event.setCancelled(true);
             }
         }
-
 
     }
 }
