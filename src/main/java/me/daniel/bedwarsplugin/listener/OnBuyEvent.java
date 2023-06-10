@@ -1,6 +1,6 @@
 package me.daniel.bedwarsplugin.listener;
 
-import me.daniel.bedwarsplugin.files.ShopItemsReader;
+import me.daniel.bedwarsplugin.data.ShopItemsReader;
 import me.daniel.bedwarsplugin.model.ShopItem;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;

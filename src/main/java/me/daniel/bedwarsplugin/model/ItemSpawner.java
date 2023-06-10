@@ -51,7 +51,8 @@ public class ItemSpawner {
      * Stops the spawner.
      */
     public void stopSpawner() {
-        runnable.cancel();
+        if (runnable != null)
+            runnable.cancel();
     }
 
 

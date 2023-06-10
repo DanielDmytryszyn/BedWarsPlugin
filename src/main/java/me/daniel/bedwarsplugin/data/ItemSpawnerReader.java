@@ -1,4 +1,4 @@
-package me.daniel.bedwarsplugin.files;
+package me.daniel.bedwarsplugin.data;
 
 import me.daniel.bedwarsplugin.model.ItemSpawner;
 import org.bukkit.Location;
@@ -16,6 +16,7 @@ import java.util.List;
 public class ItemSpawnerReader {
 
     static List<ItemSpawner> spawners;
+
     /**
      * Author: Jakob Zeise
      * Retrieves a list of item spawners based on the provided world.

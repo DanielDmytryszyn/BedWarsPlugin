@@ -1,4 +1,4 @@
-package me.daniel.bedwarsplugin.files;
+package me.daniel.bedwarsplugin.data;
 
 import me.daniel.bedwarsplugin.model.ShopItem;
 import org.bukkit.Material;
