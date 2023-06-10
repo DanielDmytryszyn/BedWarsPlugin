@@ -9,11 +9,24 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 import java.util.List;
 
+/**
+ * Author: Jakob Zeise
+ * Class for handling the onDamage event.
+ */
 public class OnDamageEvent implements Listener {
 
-    private List<Team> teams;
+    private final List<Team> teams;
+
+    public OnDamageEvent(List<Team> teams) {
+        this.teams = teams;
+    }
 
 
+    /**
+     * Cancels the onDamage event if the player is in the same team as the player who damaged him.
+     *
+     * @param event the event
+     */
     @EventHandler
     public void onDamageEvent(EntityDamageByEntityEvent event) {
 
@@ -27,16 +40,15 @@ public class OnDamageEvent implements Listener {
 
         Entity entity2 = event.getEntity();
         Player player2;
-        if (entity2 instanceof Player p2)player2 = p2;
+        if (entity2 instanceof Player p2) player2 = p2;
         else return;
 
-        boolean inSameTeam = false;
         for (Team team : teams) {
             if (team.checkSameTeam(player1, player2)) {
-
+                System.out.println("in same team");
+                // TODO: 6/9/2023 implement team damage
             }
         }
-
 
 
     }
