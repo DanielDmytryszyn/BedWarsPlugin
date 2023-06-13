@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6fc4629d-d870-4604-ab5f-4efa61eae285" name="Changes" comment="I implemented the TeamFunctionality">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/listener/OnBedClickEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/listener/OnDeathEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/listener/OnTrapdoorInteractEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/listener/OnVillagerHitEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/BedWarsPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/BedWarsPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/commands/StartRoundCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/commands/StartRoundCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/data/ItemSpawnerReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/data/ItemSpawnerReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/data/ShopItemsReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/data/ShopItemsReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/data/TeamsDataReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/data/TeamsDataReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/listener/OnBlockDestroyEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/listener/OnBlockDestroyEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/listener/OnBlockPlaceEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/listener/OnBlockPlaceEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/listener/OnRespawnEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/listener/OnRespawnEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/model/BlockDeleter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/model/BlockDeleter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/model/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/model/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/model/TeamManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/daniel/bedwarsplugin/model/TeamManager.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="BedWarsPlugin" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="BedWarsPlugin" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="BedWarsPlugin" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="BedWarsPlugin" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build setup" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="BedWarsPlugin" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="documentation" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="BedWarsPlugin" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="help" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="BedWarsPlugin" type="f1a62948:ProjectNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2Qz0GuIZu3DPW1Z16lnrEOd3hYJ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jakob/Downloads/BedWarsPlugin/BedWarsPlugin&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.26796713&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="me.daniel.bedwarsplugin" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.BedWarsPlugin [build]">
+    <configuration name="BedWarsPlugin [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="BedWarsPlugin [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="BedWarsPlugin [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="BedWarsPlugin [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="StartSpawnerCommandTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;me.daniel.bedwarsplugin.commands.StartSpawnerCommandTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>true</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.BedWarsPlugin [build]" />
+        <item itemvalue="Gradle.BedWarsPlugin [clean]" />
+        <item itemvalue="Gradle.BedWarsPlugin [jar]" />
+        <item itemvalue="Gradle.BedWarsPlugin [dependencies]" />
+        <item itemvalue="Gradle.StartSpawnerCommandTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6fc4629d-d870-4604-ab5f-4efa61eae285" name="Changes" comment="" />
+      <created>1686341011170</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1686341011170</updated>
+    </task>
+    <task id="LOCAL-00001" summary="This commit includes significant changes across multiple files in the project. The primary focus of these changes was refactoring the code to enhance its structure, readability, and maintainability. Additionally, comprehensive Javadoc comments were added to provide detailed documentation for the classes and methods involved.">
+      <created>1686346015552</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1686346015552</updated>
+    </task>
+    <task id="LOCAL-00002" summary="I implemented the TeamFunctionality">
+      <created>1686421492928</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1686421492928</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="This commit includes significant changes across multiple files in the project. The primary focus of these changes was refactoring the code to enhance its structure, readability, and maintainability. Additionally, comprehensive Javadoc comments were added to provide detailed documentation for the classes and methods involved." />
+    <MESSAGE value="I implemented the TeamFunctionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="I implemented the TeamFunctionality" />
+  </component>
+</project>

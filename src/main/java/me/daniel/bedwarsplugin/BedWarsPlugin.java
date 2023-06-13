@@ -9,8 +9,11 @@ import me.daniel.bedwarsplugin.model.BlockDeleter;
 import me.daniel.bedwarsplugin.model.TeamManager;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
+import org.bukkit.GameRule;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.Objects;
 
 /**
  * Author: Daniel Dmytryszyn & Jakob Zeise
@@ -33,6 +36,7 @@ public final class BedWarsPlugin extends JavaPlugin {
 
         registerListeners();
         registerCommands();
+        Objects.requireNonNull(getServer().getWorld("world")).setGameRule(GameRule.DO_IMMEDIATE_RESPAWN, true);
 
     }
 
@@ -48,17 +52,24 @@ public final class BedWarsPlugin extends JavaPlugin {
 
 
     /**
+     *
      * Registers the listeners.
      */
     public void registerListeners() {
-        getServer().getPluginManager().registerEvents(new OnBlockDestroyEvent(blockDeleter), this);
+        getServer().getPluginManager().registerEvents(new OnBlockDestroyEvent(blockDeleter, teamManager), this);
+        getServer().getPluginManager().registerEvents(new OnBlockPlaceEvent(blockDeleter), this);
+
+        getServer().getPluginManager().registerEvents(new OnTrapdoorInteractEvent(), this);
         getServer().getPluginManager().registerEvents(new OnFallEvent(), this);
         getServer().getPluginManager().registerEvents(new OnMergeEvent(), this);
         getServer().getPluginManager().registerEvents(new OnBuyEvent(), this);
+        getServer().getPluginManager().registerEvents(new OnBedClickEvent(), this);
+
         getServer().getPluginManager().registerEvents(new OnShopOpenEvent(ShopItemsReader.getShopItems()), this);
+        getServer().getPluginManager().registerEvents(new OnVillagerHitEvent(), this);
 
         getServer().getPluginManager().registerEvents(new OnLeaveEvent(teamManager), this);
-        getServer().getPluginManager().registerEvents(new OnRespawnEvent(teamManager), this);
+        getServer().getPluginManager().registerEvents(new OnRespawnEvent(teamManager, this), this);
         getServer().getPluginManager().registerEvents(new OnJoinEvent(teamManager), this);
 
     }

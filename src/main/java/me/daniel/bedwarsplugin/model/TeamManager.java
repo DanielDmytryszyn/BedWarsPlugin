@@ -1,6 +1,7 @@
 package me.daniel.bedwarsplugin.model;
 
 import me.daniel.bedwarsplugin.data.TeamsDataReader;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import java.util.List;
@@ -68,6 +69,19 @@ public class TeamManager {
     public void removePlayer(Player player) {
         Team team = getTeamOfPlayer(player);
         team.removePlayer(player);
+    }
+
+    public List<Location> getBedLocations() {
+        return teams.stream().map(Team::getBedLocation).toList();
+    }
+
+    public Team getTeamByBedLocation(Location location) {
+        for (Team team : teams) {
+            if (team.getBedLocation().equals(location)) {
+                return team;
+            }
+        }
+        return null;
     }
 
 }

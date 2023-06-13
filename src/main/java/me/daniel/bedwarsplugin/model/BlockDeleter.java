@@ -50,4 +50,8 @@ public class BlockDeleter {
         }
         blocksPlaced.clear();
     }
+
+    public List<Location> getBlocksPlaced() {
+        return blocksPlaced;
+    }
 }
