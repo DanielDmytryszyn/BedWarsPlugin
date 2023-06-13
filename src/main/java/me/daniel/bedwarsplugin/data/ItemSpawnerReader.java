@@ -26,7 +26,7 @@ public class ItemSpawnerReader {
      */
     public static List<ItemSpawner> getItemSpawner(World world) {
 
-        String testFile = "35,114,1,EMERALD;35,124,1,EMERALD;57,115,-7,EMERALD";
+        String testFile = "35,114,1,EMERALD;35,124,1,EMERALD;57,115,-7,EMERALD;-47,120,4,EMERALD;41,120,-83,EMERALD;125,120,4,EMERALD;41,120,79,EMERALD";
 
         if (spawners != null) {
             return spawners;

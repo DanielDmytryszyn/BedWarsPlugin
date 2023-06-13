@@ -4,16 +4,20 @@ import me.daniel.bedwarsplugin.data.ItemSpawnerReader;
 import me.daniel.bedwarsplugin.model.ItemSpawner;
 import me.daniel.bedwarsplugin.model.Team;
 import me.daniel.bedwarsplugin.model.TeamManager;
-import org.bukkit.GameMode;
-import org.bukkit.World;
+import org.bukkit.*;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
+import org.bukkit.block.BlockState;
+import org.bukkit.block.data.type.Bed;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-import java.util.logging.Logger;
+import java.util.function.Consumer;
 
 /**
  * Author: Jakob Zeise
@@ -52,25 +56,77 @@ public class StartRoundCommand implements CommandExecutor {
 
         startSpawners(sender);
 
-        teleportPlayerToBed();
+        //teleportPlayerToBed();
 
         setSurvivalMode();
 
         clearInventory();
 
+        resetVitals();
+
+        replaceBeds();
+
         return true;
     }
 
+
+    private void replaceBeds() {
+        for (Team team : teamManager.getTeams()) {
+            Location bedFootLocation = team.getBedFootLocation();
+            Location bedHeadLocation = team.getBedHeadLocation();
+
+            bedFootLocation.getBlock().setType(team.getBedMaterial());
+            bedHeadLocation.getBlock().setType(team.getBedMaterial());
+
+            Block bedFootBlock = bedFootLocation.getBlock();
+            Block bedHeadBlock = bedHeadLocation.getBlock();
+
+            BlockState bedFootState = bedFootBlock.getState();
+            BlockState bedHeadState = bedHeadBlock.getState();
+
+            bedFootState.setType(team.getBedMaterial());
+            bedHeadState.setType(team.getBedMaterial());
+
+            Bed bedFoot = (Bed) bedFootState.getBlockData();
+            Bed bedHead = (Bed) bedHeadState.getBlockData();
+
+            bedFoot.setPart(Bed.Part.FOOT);
+            bedHead.setPart(Bed.Part.HEAD);
+
+
+            BlockFace bedDirection = team.getBedDirection();
+
+            bedFoot.setFacing(bedDirection);
+            bedHead.setFacing(bedDirection);
+
+            bedFootState.setBlockData(bedFoot);
+            bedHeadState.setBlockData(bedHead);
+
+            bedFootState.update(true, false);
+            bedHeadState.update(true, false);
+        }
+    }
+
+
+
+
+
     private void clearInventory() {
-        // TODO: 6/10/2023 clear inventory does not work
         List<Team> teams = teamManager.getTeams();
         teams.forEach(team -> team.getPlayers().forEach(player -> player.getInventory().clear()));
+    }
+
+    private void resetVitals() {
+        List<Team> teams = teamManager.getTeams();
+        teams.forEach(team -> team.getPlayers().forEach(player -> player.setHealth(20)));
+        teams.forEach(team -> team.getPlayers().forEach(player -> player.setFoodLevel(20)));
     }
 
     private void setSurvivalMode() {
         List<Team> teams = teamManager.getTeams();
         teams.forEach(team -> team.getPlayers().forEach(player -> player.setGameMode(GameMode.SURVIVAL)));
     }
+
     private void startSpawners(@NotNull CommandSender sender) {
         World world = sender.getServer().getWorlds().get(0);
         List<ItemSpawner> itemSpawner = ItemSpawnerReader.getItemSpawner(world);
@@ -79,6 +135,11 @@ public class StartRoundCommand implements CommandExecutor {
 
     private void teleportPlayerToBed() {
         List<Team> teams = teamManager.getTeams();
-        teams.forEach(team -> team.getPlayers().forEach(player -> player.teleport(team.getBedLocation())));
+        Consumer<Team> teamConsumer = team -> {
+            List<Player> players = team.getPlayers();
+            players.forEach(player -> Bukkit.getScheduler().runTaskLater(
+                    plugin, () -> player.teleport(team.getBedLocation()), 5L * 20));
+        };
+        teams.forEach(teamConsumer);
     }
 }

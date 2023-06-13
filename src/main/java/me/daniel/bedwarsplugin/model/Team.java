@@ -5,8 +5,12 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.Color;
 import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.Sound;
+import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -18,28 +22,45 @@ public class Team {
 
     private final TextColor textColor;
     private final Color color;
-    private final Location bedLocation;
+    private final Location bedHeadLocation;
+    private final Location bedFootLocation;
     private final List<Player> players;
     private boolean hasBed;
-
+    private Location spawnLocation;
     private final String name;
+    private final Material bedMaterial;
+    private final BlockFace bedDirection;
 
     /**
-     * Constructs a Team object.
      *
-     * @param color       The color of the team.
-     * @param color1
-     * @param bedLocation The location of the bed.
-     * @param players     The players in the team.
-     * @param name        The name of the team.
+     * @param color The color of the team.
+     * @param color1 The color of the team.
+     * @param bedHeadLocation The location of the head of the bed.
+     * @param bedFootLocation   The location of the foot of the bed.
+     * @param name The name of the team.
+     * @param spawnLocation The location where the players of the team spawn.
+     * @param bedMaterial The material of the bed.
      */
-    public Team(TextColor color, Color color1, Location bedLocation, List<Player> players, String name) {
+    public Team(
+            TextColor color,
+            Color color1,
+            Location bedHeadLocation,
+            Location bedFootLocation,
+            String name,
+            Location spawnLocation,
+            Material bedMaterial,
+            BlockFace bedDirection
+    ) {
         this.textColor = color;
         this.color = color1;
-        this.bedLocation = bedLocation;
-        this.players = players;
+        this.bedHeadLocation = bedHeadLocation;
+        this.bedFootLocation = bedFootLocation;
+        this.players = new ArrayList<>();
         this.name = name;
         this.hasBed = true;
+        this.spawnLocation = spawnLocation;
+        this.bedMaterial = bedMaterial;
+        this.bedDirection = bedDirection;
     }
 
 
@@ -85,7 +106,7 @@ public class Team {
      * @return the bed location
      */
     public Location getBedLocation() {
-        return bedLocation;
+        return bedHeadLocation;
     }
 
     /**
@@ -119,9 +140,33 @@ public class Team {
 
     public void destroyBed() {
         hasBed = false;
+        players.forEach(player -> {
+            player.playSound(player.getLocation(), Sound.ENTITY_LIGHTNING_BOLT_IMPACT, 1.0f, 1.0f);
+            player.sendMessage(Component.text("Your bed has been destroyed!!!!!!!"));
+        });
+
     }
     public boolean hasBed() {
         return hasBed;
     }
 
+    public Location getSpawnLocation() {
+        return spawnLocation;
+    }
+
+    public Material getBedMaterial() {
+        return bedMaterial;
+    }
+
+    public Location getBedFootLocation() {
+        return bedFootLocation;
+    }
+
+    public Location getBedHeadLocation() {
+        return bedHeadLocation;
+    }
+
+    public BlockFace getBedDirection() {
+        return bedDirection;
+    }
 }

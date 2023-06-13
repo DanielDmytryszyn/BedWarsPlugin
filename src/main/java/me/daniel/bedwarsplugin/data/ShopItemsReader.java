@@ -25,7 +25,9 @@ public class ShopItemsReader {
         items.add(new ShopItem(new ItemStack(Material.ARROW), 1, 8));
         items.add(new ShopItem(new ItemStack(Material.BLUE_WOOL), 1, 16));
         items.add(new ShopItem(new ItemStack(Material.DIAMOND_PICKAXE), 5, 1));
-        items.add(new ShopItem(new ItemStack(Material.DIAMOND_SWORD), 20, 1));
+        items.add(new ShopItem(new ItemStack(Material.DIAMOND_HOE), 1, 1));
+        items.add(new ShopItem(new ItemStack(Material.LEAD), 1, 1));
+        items.add(new ShopItem(new ItemStack(Material.DONKEY_SPAWN_EGG), 1, 1));
 
         return items;
     }

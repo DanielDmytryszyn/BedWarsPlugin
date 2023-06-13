@@ -1,6 +1,8 @@
 package me.daniel.bedwarsplugin.listener;
 
 import me.daniel.bedwarsplugin.model.BlockDeleter;
+import me.daniel.bedwarsplugin.model.Team;
+import me.daniel.bedwarsplugin.model.TeamManager;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -9,6 +11,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockDamageEvent;
 
+import java.util.List;
+
 /**
  * Author: Daniel Dmytryszyn
  * Class for handling the onBlockDestroy event.
@@ -16,9 +20,11 @@ import org.bukkit.event.block.BlockDamageEvent;
 public class OnBlockDestroyEvent implements Listener {
 
     private final BlockDeleter blockDeleter;
+    private final TeamManager teamManager;
 
-    public OnBlockDestroyEvent(BlockDeleter blockDeleter) {
+    public OnBlockDestroyEvent(BlockDeleter blockDeleter, TeamManager teamManager) {
         this.blockDeleter = blockDeleter;
+        this.teamManager = teamManager;
     }
 
 
@@ -30,19 +36,34 @@ public class OnBlockDestroyEvent implements Listener {
      */
     @EventHandler
     public void onBlockDestroy(BlockDamageEvent event) {
-        Material blockMaterial = event.getBlock().getType();
+
         Player player = event.getPlayer();
         if (player.getGameMode() == GameMode.CREATIVE) return;
 
-        if (blockMaterial == Material.RED_WOOL || blockMaterial == Material.LIGHT_BLUE_WOOL) {
-            event.setCancelled(false);
+        List<Location> bedLocations = teamManager.getBedLocations();
 
-            Location location = event.getBlock().getLocation();
-            blockDeleter.removeBlock(location);
+        Location blockLocation = event.getBlock().getLocation();
 
+        Location ownBedLocation = teamManager.getTeamOfPlayer(player).getBedLocation();
+
+        if (blockLocation.equals(ownBedLocation)) {
+            event.setCancelled(true);
             return;
         }
-        event.setCancelled(true);
+
+        if (bedLocations.contains(blockLocation)) {
+            Team teamDestroyedBed = teamManager.getTeamByBedLocation(blockLocation);
+            teamDestroyedBed.destroyBed();
+            return;
+        }
+
+        List<Location> destructibleBlocks = blockDeleter.getBlocksPlaced();
+
+        if (!destructibleBlocks.contains(blockLocation)) {
+            event.setCancelled(true);
+        }
+
 
     }
+
 }
